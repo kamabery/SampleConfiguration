@@ -27,8 +27,7 @@ namespace SampleConfiguration
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            var section = Configuration.GetSection("WeatherOptions");
-            services.Configure<WeatherOptions>(section);
+            services.Configure<WeatherOptions>(Configuration.GetSection("WeatherOptions"));
             services.AddTransient<IWeatherListService, WeatherListService>();
         }
 
